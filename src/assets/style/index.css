@@ -1,5 +1,7 @@
 /* Global style for our website */
 @import 'ant-design-vue/dist/reset.css';
+@import 'fonts.css';
+@import 'general.css';
 
 *,
 *::before,
