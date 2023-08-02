@@ -1,11 +1,11 @@
 <script>
 export default {
-  name: "ReservationsPage"
+  name: "TacticPage"
 }
 </script>
 
 <template>
-
+  <h1> Tactique Page - Dashboard 2</h1>
 </template>
 
 <style scoped>
