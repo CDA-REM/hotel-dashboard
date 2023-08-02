@@ -5,7 +5,11 @@ const {defaultAlgorithm, defaultSeed} = theme
 // exporting the theme to provide it to our entire website
 export const customTheme = {
     // Customize the theme here with your own style (see https://antdv.com/theme-editor)
-    colorPrimary: "#6f17ff",
+    "colorPrimary": "#1637c5",
+    "borderRadius": 2,
+    "fontSize": 14,
+    "wireframe": false
+
 }
 
 // This will recompute colors and their variants based on our custom values
