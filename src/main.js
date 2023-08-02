@@ -3,6 +3,7 @@ import './assets/style/index.css'
 
 import {createApp} from 'vue'
 import {createPinia} from 'pinia'
+import VueApexCharts from "vue3-apexcharts";
 
 import App from './App.vue'
 import {router} from './router'
@@ -17,4 +18,6 @@ app.use(createPinia())
     .use(router)
     .use(antDesignPlugin)
     .use(appPlugin)
+    .use(VueApexCharts)
     .mount('#app')
+
