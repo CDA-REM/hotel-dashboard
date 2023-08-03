@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <h1> StrategicPage - Dashboard 2</h1>
+  <h1> Strategic Page - Dashboard 3</h1>
 </template>
 
 <style scoped>
