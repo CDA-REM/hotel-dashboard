@@ -11,19 +11,19 @@
           <span>{ USERNAME }</span>
         </a-menu-item>
 
-        <a-menu-item key="1">
+        <a-menu-item key="1" title="Tableau de bord journalier">
           <RouterLink :to="{name: 'operationalDashboard'}" />
           <dashboard-outlined />
           <span>Tableau de bord journalier</span>
         </a-menu-item>
 
-        <a-menu-item key="2">
+        <a-menu-item key="2" title="Réservations">
           <RouterLink :to="{name: 'tacticalDashboard'}" />
           <pie-chart-outlined />
           <span>Réservations</span>
         </a-menu-item>
 
-        <a-menu-item key="3">
+        <a-menu-item key="3" title="Efficacité économique">
           <RouterLink :to="{name: 'strategicDashboard'}" />
           <rise-outlined />
           <span>Efficacité</span>
@@ -48,7 +48,7 @@
     </a-layout>
   </a-layout>
 </template>
-<script lang="ts" setup>
+<script lang="ts">
 import {
   PieChartOutlined,
   UserOutlined,
@@ -59,8 +59,22 @@ import {
 } from '@ant-design/icons-vue';
 
 import { ref } from 'vue';
-const collapsed = ref<boolean>(false);
-const selectedKeys = ref<string[]>(['1']);
+export default {
+  name: 'BaseLayout',
+  components: {
+    PieChartOutlined,
+    UserOutlined,
+    ApiOutlined,
+    DashboardOutlined,
+    RiseOutlined,
+  },
+  data() {
+    return {
+      collapsed : <boolean>false,
+      selectedKeys: <string[]>['1'],
+    };
+  },
+};
 </script>
 
 <style scoped>
