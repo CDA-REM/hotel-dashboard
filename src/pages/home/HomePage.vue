@@ -9,7 +9,7 @@
         :series="series"
     ></apexchart>
     <div>
-      <button @click="updateChart">Update!</button>
+      <a-button type="primary" @click="updateChart">Update!</a-button>
     </div>
 
 		<a-button type="primary">A button</a-button>
