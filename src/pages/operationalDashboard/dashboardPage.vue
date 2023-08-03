@@ -14,17 +14,18 @@
 
 <script>
 import cardGrid from './cardGrid.vue';
-import tableComp from './tableComp.vue';
+import TableComp from './TableComp.vue';
 
 export default {
     name: "operationalDashboard",
-    components: { cardGrid, tableComp }
+    components: { cardGrid, TableComp }
 }
 </script>
     
 <style>
    h1 { text-align: center;
-        padding-bottom: 3% }
+        padding-bottom: 3%;
+        size: 24px }
    
-   .daily-dashboard { padding: 5%}
+   .daily-dashboard { padding: 5% }
 </style>
