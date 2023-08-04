@@ -63,6 +63,7 @@
 <script>
 import axios from "axios";
 import {handleResponse} from "../../utils/apiLogin";
+import {router} from "@/router";
 
 export default {
   name: "LoginForm",
@@ -85,8 +86,9 @@ export default {
 
       try {
         // await this.$userStore.login(this.credentials)
-        const response = await this.$userStore.login(this.credentials)
+        await this.$userStore.login(this.credentials)
         // this.$userStore= response.data.user
+        await router.push({name: 'operationalDashboard'})
         console.log("store", this.$userStore)
       }catch (errors) {
         this.errors = errors.response.data.errors.error

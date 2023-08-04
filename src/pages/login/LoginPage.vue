@@ -1,5 +1,8 @@
 <template>
-  <a-row justify="space-around">
+  <a-row justify="space-around" class="box-center" >
+    <a-col :span="6">
+      <img class="box-center"  :style="{}" src="../../assets/pictures/logo_app_black.png" alt="logo Hôtel Arth" />
+    </a-col>
     <a-col :span="12">
       <a-card
           style="width: 100%"
@@ -70,5 +73,7 @@
 </script>
 
 <style scoped>
-
+  .box-center {
+    transform: translate(0, 50%);
+  }
 </style>
