@@ -1,7 +1,7 @@
 <template>
   <a-row justify="space-around" class="box-center" >
     <a-col :span="6">
-      <img class="box-center"  :style="{}" src="../../assets/pictures/logo_app_black.png" alt="logo Hôtel Arth" />
+      <img class="box-center" src="../../assets/pictures/logo_app_black.png" alt="logo Hôtel Arth" />
     </a-col>
     <a-col :span="12">
       <a-card
