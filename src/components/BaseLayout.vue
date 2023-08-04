@@ -113,7 +113,8 @@ export default {
   display: flex;
   flex-flow: column wrap;
   padding: 24px;
-  background: #fff;
+  //background: #fff;
+  background-color: #f5f5f5;
   min-height: 100%;
 }
 </style>
