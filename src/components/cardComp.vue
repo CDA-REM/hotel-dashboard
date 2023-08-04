@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <a-card :title=titre :class=class :bordered="false" style="width:300px">
+    <a-card :title=titre :class=class :bordered="false" :loading=false :head-style=headStyle style="min-width:300px">
         <p>{{contenu}}</p>
     </a-card>
   </div>
@@ -20,9 +20,13 @@ export default {
     class: {
       type: String
     },
+    headStyle: {
+      type: String,
+    }
   }
 }
 </script>
+
 <style lang="css">
     .ant-card-body {
       text-align: center;
