@@ -1,63 +1,100 @@
 <template>
-  <h1> Tactique Page - Dashboard 2</h1>
+  <h1>Réservations</h1>
 
-  <apexchart
-      width="550"
-      type="bar"
-      :options="chartOptions"
-      :series="series"
-  ></apexchart>
-  <div>
-    <a-button type="primary" @click="updateChart">Update!</a-button>
-  </div>
+  <a-row>
+    <a-col :span="4">
+      <p class="header__paragraph">Sur la période</p>
+    </a-col>
+    <a-col :span="12">
+      <div><RangePicker/> </div>
+    </a-col>
+    <a-col :span="8">
+      <ReloadBtn @click="console.log('Je suis dans mon composant parent')" />
+    </a-col>
+  </a-row>
+
+  <a-divider orientation="left" orientation-margin="0px"><h2>Répartition des chambres et options</h2></a-divider>
+
+  <a-row :gutter="24">
+    <a-col class="gutter-row" :span="12">
+      <AllocationByRoomTypeChart />
+    </a-col>
+    <a-col class="gutter-row" :span="12">
+      <AllocationByOptionsChart />
+    </a-col>
+  </a-row>
+
+  <a-row :gutter="24">
+    <a-col class="gutter-row" :span="12">
+      <OccupancyData/>
+    </a-col>
+    <a-col class="gutter-row" :span="12">
+      <ReceptionPerformance />
+    </a-col>
+  </a-row>
+
+  <a-divider orientation="left" orientation-margin="0px"><h2>Météo financière</h2></a-divider>
+
+  <a-row :gutter="24">
+    <a-col class="gutter-row" :span="12">
+      <EvolutionOfAverageCart />
+    </a-col>
+    <a-col class="gutter-row" :span="12">
+      <FinancialCards />
+    </a-col>
+  </a-row>
+
 </template>
 
 <script>
+import ReloadBtn from "@/components/ReloadBtn.vue";
+import CardComp from "@/components/cardComp.vue";
+import AllocationByRoomTypeChart from "@/pages/tacticDashboard/AllocationByRoomTypeChart.vue";
+import AllocationByOptionsChart from "./AllocationByOptionsChart.vue";
+import OccupancyData from "./OccupancyData.vue";
+import ReceptionPerformance from "@/pages/tacticDashboard/ReceptionPerformance.vue";
+import RangePicker from "@/pages/tacticDashboard/RangePicker.vue";
+// import RangePicker from "@/components/RangePicker.vue";
+import FinancialCards from "@/pages/tacticDashboard/FinancialCards.vue";
+import EvolutionOfAverageCart from "@/pages/tacticDashboard/EvolutionOfAverageCart.vue";
+
 export default {
   name: "TacticPage",
+  components: {
+    EvolutionOfAverageCart,
+    FinancialCards,
+    AllocationByRoomTypeChart,
+    AllocationByOptionsChart,
+    RangePicker,
+    ReceptionPerformance,
+    CardComp,
+    ReloadBtn,
+    OccupancyData
+  },
   data() {
     return {
-      chartOptions: {
-        chart: {
-          id: "vuechart-example",
-        },
-        xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-        },
-      },
-      series: [
-        {
-          name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 81],
-        },
-      ],
+      //
     };
   },
   methods: {
-    updateChart() {
-      const max = 90;
-      const min = 20;
-      const newData = this.series[0].data.map(() => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      });
-
-      const colors = ["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0"];
-
-      // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
-      this.chartOptions = {
-        colors: [colors[Math.floor(Math.random() * colors.length)]],
-      };
-      // In the same way, update the series option
-      this.series = [
-        {
-          data: newData,
-        },
-      ];
-    },
+    //
   },
 }
 </script>
 
 <style scoped>
+.header__paragraph {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
 
+.ant-row css-dev-only-do-not-override-jqu7eg {
+  align-items: center;
+}
+
+:where(.css-dev-only-do-not-override-jqu7eg).ant-divider-horizontal.ant-divider-with-text::after {
+  border-block-start: 1px solid grey;
+  border-block-start-color: grey;
+}
 </style>
