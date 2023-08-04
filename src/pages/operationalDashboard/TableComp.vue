@@ -1,20 +1,12 @@
 <template>
-  <a-table :columns="columns" :data-source="data" @change="handleTableChange">
-    <template #bodyCell="{ column, record }">
-      <template v-if="column.key === 'statut'">
-        <span>
-          <a-tag
-            v-for="statut in record.statut"
-            :key="statut"
-            :color="statut === 'libre' ? 'green' : 'volcano'"
-          >
-            {{ statut.toUpperCase() }}
-          </a-tag>
-        </span>
-      </template>
-    </template>
+  <a-table :columns="columns" :data-source="data">
 
     <template #headerCell="{ column }">
+      <template v-if="column.key === 'tags'">
+        <span>
+          Statut
+        </span>
+      </template>
       <template v-if="column.key === 'chambre'">
         <span>
           Chambre
@@ -37,6 +29,18 @@
       </template>
     </template>
 
+    <template #bodyCell="{ column, record }">
+      <template v-if="column.key === 'tags'">
+        <span>
+          <a-tag :key="record.tags"
+            :color="record.tags === 'disponible' ? 'green' : 'volcano'"
+          >
+            {{ record.tags.toUpperCase() }}
+          </a-tag>
+        </span>
+      </template>
+    </template>
+
     
   </a-table>
 </template>
@@ -46,11 +50,23 @@
 export default {
   data() {
     return {
-      columns : [{
+      columns : [
+      {
         name: 'Statut',
-        dataIndex: 'statut',
-        key: 'statut'
-      }, {
+        dataIndex: 'tags',
+        key: 'tags',
+        filters: [{
+          text: 'Disponible',
+          value: 'disponible'
+        },
+        {
+          text: 'Occupée',
+          value: 'occupée'
+        }],
+        onFilter: (value, record) => record.tags === value,
+        filterSearch: true
+      },
+      {
         title: 'Chambre',
         dataIndex: 'chambre',
         key: 'chambre',
@@ -76,21 +92,17 @@ export default {
         key: 'nombreCle',
       }],
       data : [{
-        statut: ['libre'],
+        tags: 'disponible',
         chambre: 32,
-        nom: 'Jean-Jacques Goldman',
-        arrivee: '08/09/2023',
-        depart: '10/09/2023',
-        nombreCle: 2
       }, {
-        statut: ['occupée'],
+        tags: 'occupée',
         chambre: 42,
         nom: 'Gean-Jacques Goldman',
         arrivee: '08/09/2023',
         depart: '11/09/2023',
         nombreCle: 2
       }, {
-        statut: ['libre'],
+        tags: 'occupée',
         chambre: 32,
         nom: 'Jean-Jacques Goldman',
         arrivee: '08/09/2023',
