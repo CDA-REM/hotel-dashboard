@@ -4,3 +4,8 @@ body,
     flex-direction: column;
     max-width: 1800px;
 }
+
+h1 {
+    font-size: 2.5em;
+    margin: 0.67em 0;
+}
