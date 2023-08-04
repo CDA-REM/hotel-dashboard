@@ -7,8 +7,8 @@
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
         <a-menu-item>
           <RouterLink :to="{name: 'userAccount'}" />
-          <user-outlined />
-          <span>{ USERNAME }</span>
+          <user-outlined  v-if="this.$userStore"/>
+          <span>{{ this.$userStore.user.firstname }}</span>
         </a-menu-item>
 
         <a-menu-item key="1" title="Tableau de bord journalier">
@@ -29,7 +29,7 @@
           <span>Efficacité</span>
         </a-menu-item>
 
-        <a-menu-item key="4">
+        <a-menu-item @click="this.$userStore.logout()" key="4">
           <RouterLink :to="{name: 'login'}" />
           <api-outlined />
           <span>Déconnexion</span>

@@ -1,21 +1,33 @@
 <template>
-		<a-card
-			style="width: 100%"
-			title="CONNEXION"
-			:tab-list="tabList"
-			:active-tab-key="key"
-			@tabChange="key => onTabChange(key, 'key')"
-		>
-			<template #customTab="item">
-			<span v-if="item.key === 'tab1'">
+  <a-row justify="space-around" class="box-center" >
+    <a-col :span="6">
+      <img class="box-center" src="../../assets/pictures/logo_app_black.png" alt="logo Hôtel Arth" />
+    </a-col>
+    <a-col :span="12">
+      <a-card
+          style="width: 100%"
+          :title="(key ==='Connexion') ? 'CONNEXION' : 'INSCRIPTION'"
+          :tab-list="tabList"
+          :active-tab-key="key"
+          @tabChange="key => onTabChange(key, 'key')"
+      >
+        <template #customTab="item">
+			<span v-if="item.key === 'Connexion'">
 				{{ item.key }}
 			</span>
-			</template>
+        </template>
+        <a-row >
+          <a-col v-if="key === 'Connexion'" :span="24" ><login-form/></a-col>
+          <a-col v-else :span="24" >{{ contentList[key] }}</a-col>
+        </a-row>
 
-      <div v-if="key === 'tab1'"><login-form/></div>
-      <div v-else>{{ contentList[key] }}</div>
+        <!--      <div v-if="key === 'Connexion'"><login-form/></div>-->
+        <!--      <div v-else>{{ contentList[key] }}</div>-->
 
-		</a-card>
+      </a-card>
+    </a-col>
+  </a-row>
+
 
 
 </template>
@@ -31,20 +43,20 @@
       return {
         tabList: [
           {
-            key: 'tab1',
-            tab: 'tab1',
+            key: 'Connexion',
+            tab: 'Connexion',
           },
           {
-            key: 'tab2',
-            tab: 'tab2',
+            key: 'Inscription',
+            tab: 'Inscription',
           },
         ],
         contentList: {
-          tab1: '',
-          tab2: 'content2',
+          Connexion: '',
+          Inscription: 'content2',
         },
 
-        key: 'tab1',
+        key: 'Connexion',
         noTitleKey: 'app',
       };
 	},
@@ -61,5 +73,7 @@
 </script>
 
 <style scoped>
-
+  .box-center {
+    transform: translate(0, 50%);
+  }
 </style>

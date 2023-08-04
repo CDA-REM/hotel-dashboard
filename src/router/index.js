@@ -52,5 +52,10 @@ export const router = createRouter({
             return savedPosition
         }
         return {top: 0, behavior: 'smooth'}
+    },
+    checkIfUserIsAuthenticated() {
+    return $userStore.user ? true : false
+
     }
+
 })
