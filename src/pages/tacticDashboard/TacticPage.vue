@@ -1,48 +1,50 @@
 <template>
   <h1>Réservations</h1>
+  <div>
+    <a-row>
+      <a-col :span="4">
+        <p class="header__paragraph">Sur la période</p>
+      </a-col>
+      <a-col :span="12">
+        <TacticRangePicker/>
+      </a-col>
+      <a-col :span="8">
+        <ReloadBtn @click="console.log('Je suis dans mon composant parent')" />
+      </a-col>
+    </a-row>
 
-  <a-row>
-    <a-col :span="4">
-      <p class="header__paragraph">Sur la période</p>
-    </a-col>
-    <a-col :span="12">
-      <div><RangePicker/> </div>
-    </a-col>
-    <a-col :span="8">
-      <ReloadBtn @click="console.log('Je suis dans mon composant parent')" />
-    </a-col>
-  </a-row>
+    <a-divider orientation="left" orientation-margin="0px"><h2>Répartition des chambres et options</h2></a-divider>
 
-  <a-divider orientation="left" orientation-margin="0px"><h2>Répartition des chambres et options</h2></a-divider>
+    <a-row :gutter="24">
+      <a-col class="gutter-row" :span="12">
+        <AllocationByRoomTypeChart />
+      </a-col>
+      <a-col class="gutter-row" :span="12">
+        <AllocationByOptionsChart />
+      </a-col>
+    </a-row>
 
-  <a-row :gutter="24">
-    <a-col class="gutter-row" :span="12">
-      <AllocationByRoomTypeChart />
-    </a-col>
-    <a-col class="gutter-row" :span="12">
-      <AllocationByOptionsChart />
-    </a-col>
-  </a-row>
+    <a-row :gutter="24">
+      <a-col class="gutter-row" :span="12">
+        <OccupancyData/>
+      </a-col>
+      <a-col class="gutter-row" :span="12">
+        <ReceptionPerformance />
+      </a-col>
+    </a-row>
 
-  <a-row :gutter="24">
-    <a-col class="gutter-row" :span="12">
-      <OccupancyData/>
-    </a-col>
-    <a-col class="gutter-row" :span="12">
-      <ReceptionPerformance />
-    </a-col>
-  </a-row>
+    <a-divider orientation="left" orientation-margin="0px"><h2>Météo financière</h2></a-divider>
 
-  <a-divider orientation="left" orientation-margin="0px"><h2>Météo financière</h2></a-divider>
+    <a-row :gutter="24">
+      <a-col class="gutter-row" :span="12">
+        <EvolutionOfAverageCart />
+      </a-col>
+      <a-col class="gutter-row" :span="12">
+        <FinancialCards />
+      </a-col>
+    </a-row>
+  </div>
 
-  <a-row :gutter="24">
-    <a-col class="gutter-row" :span="12">
-      <EvolutionOfAverageCart />
-    </a-col>
-    <a-col class="gutter-row" :span="12">
-      <FinancialCards />
-    </a-col>
-  </a-row>
 
 </template>
 
@@ -53,8 +55,7 @@ import AllocationByRoomTypeChart from "@/pages/tacticDashboard/AllocationByRoomT
 import AllocationByOptionsChart from "./AllocationByOptionsChart.vue";
 import OccupancyData from "./OccupancyData.vue";
 import ReceptionPerformance from "@/pages/tacticDashboard/ReceptionPerformance.vue";
-import RangePicker from "@/pages/tacticDashboard/RangePicker.vue";
-// import RangePicker from "@/components/RangePicker.vue";
+import TacticRangePicker from "@/pages/tacticDashboard/TacticRangePicker.vue";
 import FinancialCards from "@/pages/tacticDashboard/FinancialCards.vue";
 import EvolutionOfAverageCart from "@/pages/tacticDashboard/EvolutionOfAverageCart.vue";
 
@@ -65,7 +66,7 @@ export default {
     FinancialCards,
     AllocationByRoomTypeChart,
     AllocationByOptionsChart,
-    RangePicker,
+    TacticRangePicker,
     ReceptionPerformance,
     CardComp,
     ReloadBtn,
@@ -79,6 +80,10 @@ export default {
   methods: {
     //
   },
+  computed: {
+    //
+  },
+
 }
 </script>
 
