@@ -1,5 +1,4 @@
-
-
+/*Background custom colors*/
 .bg-arth-yellow {
     background-color: var(--hotel-arth-yellow);
 }
@@ -19,3 +18,5 @@
 .bg-arth-light-grey {
     background-color: var(--hotel-arth-light-grey);
 }
+
+
