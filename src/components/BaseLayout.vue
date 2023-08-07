@@ -14,7 +14,7 @@
         <a-menu-item key="1" title="Tableau de bord journalier">
           <RouterLink :to="{name: 'operationalDashboard'}" />
           <dashboard-outlined />
-          <span>Tableau de bord journalier</span>
+          <span>Aujourd'hui</span>
         </a-menu-item>
 
         <a-menu-item key="2" title="Réservations">
