@@ -131,10 +131,12 @@ export const useDataStore = defineStore('data', {
     actions: {
         async fetchReservationsBetweenDates() {
             try {
-                const startDate = $filterStore.dateFilter[0]; // Première date du filtre
-                const endDate = $filterStore.dateFilter[1]; // Deuxième date du filtre
+                const startDate = this.$filterStore.dateFilter[0]; // Première date du filtre
+                const endDate = this.$filterStore.dateFilter[1]; // Deuxième date du filtre
 
-                const response = await axios.get(`/api/reservations`, {
+                console.log(startDate, endDate);
+
+                const response = await axios.get(`/api/dashboard/tactical`, {
                     params: {
                         start_date: startDate,
                         end_date: endDate,
@@ -143,6 +145,7 @@ export const useDataStore = defineStore('data', {
 
                 // Met à jour les réservations dans le state avec les données reçues de l'API
                 this.reservations = response.data;
+                console.log(this.reservations);
             } catch (error) {
                 console.error("Une erreur s'est produite lors de la récupération des réservations:", error);
             }
