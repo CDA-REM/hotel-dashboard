@@ -3,7 +3,7 @@
         <h1>Informations du jour</h1>
         <h2>Statistiques</h2>
         <a-divider />
-        <cardGrid />
+        <customCardGrid />
         <h2>Occupation des chambres</h2>
         <a-divider />
         <tableComp />
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import cardGrid from './cardGrid.vue';
+import customCardGrid from './customCardGrid.vue';
 import TableComp from './TableComp.vue';
 
 export default {
     name: "operationalDashboard",
-    components: { cardGrid, TableComp }
+    components: { customCardGrid, TableComp }
 }
 </script>
     
