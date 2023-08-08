@@ -5,31 +5,31 @@
         <img src="../assets/pictures/logo_app_white.png" alt="logo Hôtel Arth" />
       </div>
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item>
+        <a-menu-item :key="menuKeyToRouteName['1']" title="Mon compte" >
           <RouterLink :to="{name: 'userAccount'}" />
           <user-outlined  v-if="this.$userStore"/>
-          <span>{{ this.$userStore.user.firstname }}</span>
+          <span>{{ this.$userStore.user.firstname || "Mon compte"}}</span>
         </a-menu-item>
 
-        <a-menu-item key="1" title="Tableau de bord journalier">
+        <a-menu-item :key="menuKeyToRouteName['2']" title="Tableau de bord journalier">
           <RouterLink :to="{name: 'operationalDashboard'}" />
           <dashboard-outlined />
           <span>Aujourd'hui</span>
         </a-menu-item>
 
-        <a-menu-item key="2" title="Réservations">
+        <a-menu-item :key="menuKeyToRouteName['3']" title="Réservations">
           <RouterLink :to="{name: 'tacticalDashboard'}" />
           <pie-chart-outlined />
           <span>Réservations</span>
         </a-menu-item>
 
-        <a-menu-item key="3" title="Efficacité économique">
+        <a-menu-item :key="menuKeyToRouteName['4']" title="Efficacité économique">
           <RouterLink :to="{name: 'strategicDashboard'}" />
           <rise-outlined />
           <span>Efficacité</span>
         </a-menu-item>
 
-        <a-menu-item @click="this.$userStore.logout()" key="4">
+        <a-menu-item @click="this.$userStore.logout()" :key="menuKeyToRouteName['5']" title="Déconnexion">
           <RouterLink :to="{name: 'login'}" />
           <api-outlined />
           <span>Déconnexion</span>
@@ -55,8 +55,8 @@ import {
   ApiOutlined,
   DashboardOutlined,
   RiseOutlined,
-
 } from '@ant-design/icons-vue';
+import { useRoute } from 'vue-router';
 
 import { ref } from 'vue';
 export default {
@@ -68,10 +68,20 @@ export default {
     DashboardOutlined,
     RiseOutlined,
   },
-  data() {
+  setup() {
+    const route = useRoute();
+    const selectedKeys = ref([route.meta.key || '1']);
+    const menuKeyToRouteName = {
+      '1': 'userAccount',
+      '2': 'operationalDashboard',
+      '3': 'tacticalDashboard',
+      '4': 'strategicDashboard',
+      '5': 'login',
+    };
     return {
-      collapsed : <boolean>false,
-      selectedKeys: <string[]>['1'],
+      collapsed: ref(false),
+      selectedKeys,
+      menuKeyToRouteName,
     };
   },
 };
