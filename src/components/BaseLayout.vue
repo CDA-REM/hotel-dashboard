@@ -79,7 +79,7 @@ export default {
       '5': 'login',
     };
     return {
-      collapsed: ref(false),
+      collapsed: ref(true),
       selectedKeys,
       menuKeyToRouteName,
     };
