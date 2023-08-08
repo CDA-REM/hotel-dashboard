@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import axios from "axios";
 
 export const useDataStore = defineStore('data', {
     state() {
@@ -128,6 +129,23 @@ export const useDataStore = defineStore('data', {
         }
     },
     actions: {
+        async fetchReservationsBetweenDates() {
+            try {
+                const startDate = $filterStore.dateFilter[0]; // Première date du filtre
+                const endDate = $filterStore.dateFilter[1]; // Deuxième date du filtre
 
+                const response = await axios.get(`/api/reservations`, {
+                    params: {
+                        start_date: startDate,
+                        end_date: endDate,
+                    },
+                });
+
+                // Met à jour les réservations dans le state avec les données reçues de l'API
+                this.reservations = response.data;
+            } catch (error) {
+                console.error("Une erreur s'est produite lors de la récupération des réservations:", error);
+            }
+        },
     }
 })
