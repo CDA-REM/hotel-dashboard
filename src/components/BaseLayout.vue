@@ -14,7 +14,7 @@
         <a-menu-item key="1" title="Tableau de bord journalier">
           <RouterLink :to="{name: 'operationalDashboard'}" />
           <dashboard-outlined />
-          <span>Tableau de bord journalier</span>
+          <span>Aujourd'hui</span>
         </a-menu-item>
 
         <a-menu-item key="2" title="Réservations">
@@ -113,7 +113,8 @@ export default {
   display: flex;
   flex-flow: column wrap;
   padding: 24px;
-  background: #fff;
+  //background: #fff;
+  background-color: #f5f5f5;
   min-height: 100%;
 }
 </style>

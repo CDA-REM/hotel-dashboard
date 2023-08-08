@@ -33,4 +33,8 @@ export default {
       font-size: 32px;
       font-weight: bold;
     }
+
+    .ant-card-head-title {
+      white-space: normal !important;
+    }
 </style>

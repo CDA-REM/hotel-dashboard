@@ -1,0 +1,72 @@
+[
+    {
+        "id": 25,
+        "created_at": "2023-07-23 16:59:41",
+        "updated_at": "2023-07-23 16:59:41",
+        "user_id": 8,
+        "number_of_people": 1,
+        "started_date": "2023-07-23",
+        "end_date": "2023-07-24",
+        "checkin": null,
+        "checkout": null,
+        "price": 79,
+        "stay_type": "personal",
+        "status": "validated"
+    },
+    {
+        "id": 26,
+        "created_at": "2023-08-04 14:37:01",
+        "updated_at": "2023-08-04 14:37:01",
+        "user_id": 7,
+        "number_of_people": 2,
+        "started_date": "2023-08-04",
+        "end_date": "2023-08-06",
+        "checkin": null,
+        "checkout": null,
+        "price": 140,
+        "stay_type": "personal",
+        "status": "validated"
+    },
+    {
+        "id": 27,
+        "created_at": "2023-08-04 14:46:40",
+        "updated_at": "2023-08-04 14:46:40",
+        "user_id": 7,
+        "number_of_people": 1,
+        "started_date": "2023-08-07",
+        "end_date": "2023-08-08",
+        "checkin": null,
+        "checkout": null,
+        "price": 114,
+        "stay_type": "personal",
+        "status": "validated"
+    },
+    {
+        "id": 28,
+        "created_at": "2023-08-04 14:46:40",
+        "updated_at": "2023-08-04 14:46:40",
+        "user_id": 1,
+        "number_of_people": 1,
+        "started_date": "2023-08-07",
+        "end_date": "2023-08-08",
+        "checkin": null,
+        "checkout": null,
+        "price": 114,
+        "stay_type": "personal",
+        "status": "validated"
+    },
+    {
+        "id": 30,
+        "created_at": "2023-08-04 14:50:55",
+        "updated_at": "2023-08-04 14:50:55",
+        "user_id": 5,
+        "number_of_people": 2,
+        "started_date": "2023-08-08",
+        "end_date": "2023-08-13",
+        "checkin": null,
+        "checkout": null,
+        "price": 255,
+        "stay_type": "personal",
+        "status": "validated"
+    }
+]
