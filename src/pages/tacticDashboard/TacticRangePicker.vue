@@ -21,8 +21,6 @@ import {defineComponent} from 'vue';
 import dayjs, { Dayjs } from 'dayjs';
 import locale from 'ant-design-vue/es/date-picker/locale/fr_FR';
 
-import { ref } from 'vue';
-
 type RangeValue = [Dayjs, Dayjs];
 
 export default defineComponent({
@@ -38,12 +36,11 @@ export default defineComponent({
   methods: {
     onChange(val: RangeValue) {
       this.pickerValue = val;
-      this.$filterStore.dateFilter = this.formatDatesToYYYYMMDD(this.pickerValue);
-      console.log(this.$filterStore.dateFilter)
+      this.$dashboardTacticStore.dateFilter = this.formatDatesToYYYYMMDD(this.pickerValue);
       this.fetchReservations();
     },
     fetchReservations() {
-      this.$dataStore.fetchReservationsBetweenDates();
+      this.$dashboardTacticStore.fetchReservationsBetweenDates();
     },
 
     /**
@@ -54,7 +51,6 @@ export default defineComponent({
     formatDatesToYYYYMMDD(dates: RangeValue) {
       if (dates) {
         const formattedDates = dates.map(date => dayjs(date).format('YYYY-MM-DD'));
-        console.log('Formatted dates:', formattedDates);
         return formattedDates;
       }
     },
@@ -65,9 +61,6 @@ export default defineComponent({
       }
     },
   },
-  computed: {
-
-  }
 });
 </script>
 

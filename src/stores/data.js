@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import axios from "axios";
 
 export const useDataStore = defineStore('data', {
     state() {
@@ -125,30 +124,10 @@ export const useDataStore = defineStore('data', {
                 {"id":5,"option_name":"All-inclusive pressing service \u20ac30 \/person\/day","option_price":30},
                 {"id":6,"option_name":"Unlimited access to the Canal+ channel \u20ac10 \/week","option_price":10},
                 {"id":7,"option_name":"Access to the swimming pool 25\u20ac per stay","option_price":25}
-            ]
+            ],
         }
     },
     actions: {
-        async fetchReservationsBetweenDates() {
-            try {
-                const startDate = this.$filterStore.dateFilter[0]; // Première date du filtre
-                const endDate = this.$filterStore.dateFilter[1]; // Deuxième date du filtre
-
-                console.log(startDate, endDate);
-
-                const response = await axios.get(`/api/dashboard/tactical`, {
-                    params: {
-                        start_date: startDate,
-                        end_date: endDate,
-                    },
-                });
-
-                // Met à jour les réservations dans le state avec les données reçues de l'API
-                this.reservations = response.data;
-                console.log(this.reservations);
-            } catch (error) {
-                console.error("Une erreur s'est produite lors de la récupération des réservations:", error);
-            }
-        },
+        //
     }
 })
