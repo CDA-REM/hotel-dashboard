@@ -14,26 +14,41 @@ export const router = createRouter({
                     path: "/mon-compte",
                     name: "userAccount",
                     component: UserAccountPage,
+                    meta: {
+                        key: 'userAccount',
+                    }
                 },
                 {
                     path: 'dashboard-operational',
                     name: 'operationalDashboard',
-                    component: () => import('../pages/operationalDashboard/dashboardPage.vue')
+                    component: () => import('../pages/operationalDashboard/dashboardPage.vue'),
+                    meta: {
+                        key: 'operationalDashboard',
+                    }
                 },
                 {
                     path: 'dashboard-tactique',
                     name: 'tacticalDashboard',
-                    component: () => import('../pages/tacticDashboard/TacticPage.vue')
+                    component: () => import('../pages/tacticDashboard/TacticPage.vue'),
+                    meta: {
+                        key: 'tacticalDashboard',
+                    }
                 },
                 {
                     path: 'dashboard-strategique',
                     name: 'strategicDashboard',
-                    component: () => import('../pages/strategicDashboard/StrategicPage.vue')
+                    component: () => import('../pages/strategicDashboard/StrategicPage.vue'),
+                    meta: {
+                        key: 'strategicDashboard',
+                    }
                 },
                 {
                     path: '/:pathMatch(.*)*',
                     name: 'notFound',
-                    component: () => import('../pages/notFound/NotFound.vue')
+                    component: () => import('../pages/notFound/NotFound.vue'),
+                    meta: {
+                        key: 'notFound',
+                    }
                 }
             ]
         },
