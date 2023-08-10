@@ -10,8 +10,7 @@
       />
     </a-space>
     <div v-if="pickerValue">
-      <p> {{ pickerValue }}</p>
-      <p>Dates sélectionnées : {{ formatDate(pickerValue) }}</p>
+      <p style="margin-top: 1rem;">Dates sélectionnées : {{ formatDate(pickerValue) }}</p>
     </div>
   </div>
 </template>
@@ -40,7 +39,16 @@ export default defineComponent({
       this.fetchReservations();
     },
     fetchReservations() {
-      this.$dashboardTacticStore.fetchReservationsBetweenDates();
+      this.$dashboardTacticStore.fetchTotalSales();
+      this.$dashboardTacticStore.fetchAverageCartValue();
+      this.$dashboardTacticStore.fetchAverageCartEvolution();
+      this.$dashboardTacticStore.fetchNumberOfReservations();
+      this.$dashboardTacticStore.fetchOccupancyRate();
+      this.$dashboardTacticStore.fetchOccupancyRateByRoomType();
+      // this.$dashboardTacticStore.fetchOccupancyRateByOptions();
+      // this.$dashboardTacticStore.fetchAverageTimeBetweenBookingAndCheckin();
+      // this.$dashboardTacticStore.fetchReceptionPerformance();
+
     },
 
     /**

@@ -1,6 +1,6 @@
 <script>
 import {defineComponent} from 'vue';
-import cardComp from "@/components/cardComp.vue";
+import cardComp from "@/components/CardComp.vue";
 import { ApexCharts } from "apexcharts";
 
 export default defineComponent({
@@ -33,11 +33,24 @@ export default defineComponent({
 </script>
 
 <template>
-  <a-card title="Répartition par type de chambre" style="min-width: fit-content; min-height: 350px" head-style="text-align: center;" >
-    <div id="pie-chart">
-      <apexchart type="pie" width="380" :options="chartOptions" :series="series"></apexchart>
+  <div>
+    <div v-if="$dashboardTacticStore.occupancyRateByRoomTypeTactic">
+      <a-card title="Répartition par type de chambre" style="min-width: fit-content; min-height: 350px" head-style="text-align: center;" >
+        <div id="pie-chart">
+          <apexchart type="pie" width="380" :options="chartOptions" :series="series"></apexchart>
+        </div>
+      </a-card>
     </div>
-  </a-card>
+    <div v-else>
+      <a-card title="Répartition par type de chambre" style="min-width: fit-content; min-height: 350px" head-style="text-align: center;" >
+        <div id="pie-chart">
+
+        </div>
+      </a-card>
+    </div>
+
+  </div>
+
 </template>
 
 <style scoped>
