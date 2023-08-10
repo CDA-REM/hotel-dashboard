@@ -23,7 +23,7 @@
     <a-form-item
         label="Password"
         name="password"
-        :rules="[{ required: true, message: 'Please input your password!' }]"
+        :rules="[{ required: true, message: 'Saisissez votre mot de passe!' }]"
     >
       <a-input-password v-model:value="credentials.password" />
     </a-form-item>
