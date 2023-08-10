@@ -1,0 +1,22 @@
+/*Background custom colors*/
+.bg-arth-yellow {
+    background-color: var(--hotel-arth-yellow);
+}
+
+.bg-arth-blue {
+    background-color: var(--hotel-arth-blue);
+}
+
+.bg-arth-light-green {
+    background-color: var(--hotel-arth-light-green);
+}
+
+.bg-arth-light-blue {
+    background-color: var(--hotel-arth-light-blue);
+}
+
+.bg-arth-light-grey {
+    background-color: var(--hotel-arth-light-grey);
+}
+
+
