@@ -4,24 +4,27 @@
             <a-card-grid style="width: 33%; text-align: center" :hoverable="false">
                 <h6>PDJ</h6>
                 <a-divider />
-                <p>12</p>
+                <p>{{ menus['breakfast'] }}</p>
             </a-card-grid>
             <a-card-grid style="width: 33%; text-align: center" :hoverable="false">
                 <h6>DEJ</h6>
                 <a-divider />
-                <p>5</p>
+                <p>{{ menus['lunch'] }}</p>
             </a-card-grid>
             <a-card-grid style="width: 34%; text-align: center" :hoverable="false">
                 <h6>DINER</h6>
                 <a-divider />
-                <p>12</p>
+                <p>{{ menus['diner'] }}</p>
             </a-card-grid>
         </a-card>   
     </div>
 </template>
 <script>
 export default {
-    name : 'antCardGrid'
+    name : 'antCardGrid',
+    props: {
+        menus: Array
+    }
 }
 </script>
 

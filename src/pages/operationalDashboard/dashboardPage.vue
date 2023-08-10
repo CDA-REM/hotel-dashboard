@@ -3,22 +3,24 @@
         <h1>Informations du jour</h1>
         <h2>Statistiques</h2>
         <a-divider />
-        <customCardGrid />
+        <customCardGrid :people="$dashboardOperational.numberOfPeople"/>
         <h2>Occupation des chambres</h2>
         <a-divider />
-        <tableComp />
+        <tableComp :tableData="$dataStore.reservations"/>
+        <p>{{ tableData }}</p>
     </div>
-
-        <h2></h2>
 </template>
 
 <script>
 import customCardGrid from './customCardGrid.vue';
-import TableComp from './TableComp.vue';
+import TableComp from './TableComp.vue'; 
 
 export default {
     name: "operationalDashboard",
-    components: { customCardGrid, TableComp }
+    components: { customCardGrid, TableComp },
+    async mounted() {
+        await this.$dashboardOperational.loadDailyData();
+    }
 }
 </script>
     

@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="data">
+  <a-table :columns="columns" :data-source="$dataStore.reservations">
 
     <template #headerCell="{ column }">
       <template v-if="column.key === 'tags'">
@@ -48,6 +48,10 @@
 <script>
 
 export default {
+  name: 'TableComp',
+  props: {
+    tableData: Array
+  },
   data() {
     return {
       columns : [

@@ -10,7 +10,7 @@
                         <cardComp titre="Clés en cours d'utilisation" contenu="24" />
                     </a-col>
                     <a-col :span="8">
-                        <cardComp titre="Nombre de clients" contenu="48" />
+                        <cardComp titre="Nombre de clients" :contenu=people />
                     </a-col>
                     
                 </a-space>
@@ -20,7 +20,7 @@
                     <chartCard titre="Taux d'occupation" />
                 </a-col>
                 <a-col :span="8">
-                    <antCardGrid />
+                    <antCardGrid :menus=menus />
                 </a-col>
             </a-row>
 
@@ -42,7 +42,11 @@ import BarChart from './BarChart.vue';
 
 export default {
     name: "customCardGrid",
-    components: { cardComp, ChartCard, chartComp, antCardGrid, BarChart }
+    components: { cardComp, ChartCard, chartComp, antCardGrid, BarChart },
+    props: {
+        people: Number,
+        menus: Array
+    }
 }
 </script>
 
