@@ -1,10 +1,10 @@
 <script>
 import {defineComponent} from 'vue'
-import CardComp from "@/components/cardComp.vue";
+import cardComp from "../../components/CardComp.vue";
 
 export default defineComponent({
   name: "OccupancyData",
-  components: {CardComp},
+  components: {cardComp},
   data() {
     return {
       statistics: {

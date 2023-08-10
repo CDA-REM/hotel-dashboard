@@ -33,6 +33,7 @@ export default {
             this.$dashboardOperational.calculateOccupationRate();
             console.log(this.$dashboardOperational.occupationRate)
         }
+
     }
 }
 </script>

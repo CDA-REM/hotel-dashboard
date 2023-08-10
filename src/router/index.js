@@ -8,6 +8,7 @@ export const router = createRouter({
         {
             path: '/',
             component: BaseLayout, // The root of all our components, where the fixed elements will be (navbar...),
+            // TODO - Uncomment this line to redirect to login page if user is not authenticated
             // redirect: '/connexion',
             children: [
                 {
