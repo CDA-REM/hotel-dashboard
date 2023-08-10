@@ -1,87 +1,12 @@
 import { defineStore } from "pinia";
+import axios from "axios";
 
 export const useDataStore = defineStore('data', {
     state() {
         return {
-            reservations : [{
-                "id": 1,
-                "user_id": 2,
-                "user_gender": "madam",
-                "user_name": "Gunnar Hilpert",
-                "number_of_people": 1,
-                "started_date": "2023-08-05 14:39:51",
-                "end_date": "2023-08-13 09:28:11",
-                "checkin": null,
-                "checkout": null,
-                "price": 178.87,
-                "stay_type": "pro",
-                "status": "validated",
-                "rooms": [],
-                "options": []
-            },
-            {
-                "id": 2,
-                "user_id": 6,
-                "user_gender": "mister",
-                "user_name": "Kaley King",
-                "number_of_people": 7,
-                "started_date": "2023-08-13 08:39:32",
-                "end_date": "2023-08-16 01:14:54",
-                "checkin": null,
-                "checkout": null,
-                "price": 321.62,
-                "stay_type": "pro",
-                "status": "validated",
-                "rooms": [{"id": 14, "room_number": 204, "style": "classic", "price": 70}, {
-                    "id": 12,
-                    "room_number": 202,
-                    "style": "classic",
-                    "price": 70
-                }, {"id": 19, "room_number": 209, "style": "classic", "price": 70}],
-                "options": []
-            },
-            {
-                "id": 3,
-                "user_id": 4,
-                "user_gender": "madam",
-                "user_name": "Caitlyn Balistreri",
-                "number_of_people": 6,
-                "started_date": "2023-08-10 15:48:50",
-                "end_date": "2023-08-12 03:18:16",
-                "checkin": null,
-                "checkout": null,
-                "price": 1255.11,
-                "stay_type": "pro",
-                "status": "validated",
-                "rooms": [{"id": 20, "room_number": 210, "style": "classic", "price": 70}, {
-                    "id": 18,
-                    "room_number": 208,
-                    "style": "classic",
-                    "price": 70
-                }],
-                "options": []
-            },
-            {
-                "id": 4,
-                "user_id": 2,
-                "user_gender": "madam",
-                "user_name": "Gunnar Hilpert",
-                "number_of_people": 9,
-                "started_date": "2023-08-13 13:33:16",
-                "end_date": "2023-08-14 21:36:52",
-                "checkin": null,
-                "checkout": null,
-                "price": 625.18,
-                "stay_type": "personal",
-                "status": "validated",
-                "rooms": [{"id": 8, "room_number": 108, "style": "classic", "price": 70}, {
-                    "id": 8,
-                    "room_number": 108,
-                    "style": "classic",
-                    "price": 70
-                }],
-                "options": []
-            },],
+            reservations : [],
+            numberOfPeople : 0,
+            menus: [],
             rooms : [
                 {"id":1,"room_number":101,"style":"classic","price":70},
                 {"id":2,"room_number":102,"style":"classic","price":70},
@@ -126,8 +51,6 @@ export const useDataStore = defineStore('data', {
                 {"id":7,"option_name":"Access to the swimming pool 25\u20ac per stay","option_price":25}
             ],
         }
-    },
-    actions: {
-        //
     }
-})
+    }
+)
