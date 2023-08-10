@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       monthFormat: 'YYYY/MM',
-      dateFormatList: ['MM/YYYY'],
+      dateFormatList: ['MM/YYYY', 'YYYY-MM-DD'],
       locale,
       dateString: '',
     }
@@ -31,7 +31,8 @@ export default {
     //   console.log(dateString)
     // }
     onChange(date, dateString) {
-      console.log(dateString)
+      this.dateString = date.$d
+      console.log(date)
     }
   }
 
@@ -39,8 +40,8 @@ export default {
 </script>
 
 <template>
-  <a-date-picker :locale="locale"  v-model="dateString" :format="dateFormatList" picker="month" placeholder="Mois" @change="onChange"/>
-  <div>{{dateString }}</div>
+  <a-date-picker :locale="locale" :format="dateFormatList" picker="month" placeholder="Mois" @change="onChange"/>
+  <div>test {{dateString }}</div>
 </template>
 
 <style scoped>

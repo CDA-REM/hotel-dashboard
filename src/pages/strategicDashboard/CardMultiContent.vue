@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "cardMultiContent",
+  name: "CardMultiContent",
   props: {
     titre: {
       type :String,

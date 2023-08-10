@@ -1,9 +1,9 @@
 <script>
 import DatePickerMonth from "./DatePickerMonth.vue";
-import cardMultiContent from "@/pages/strategicDashboard/cardMultiContent.vue";
+import CardMultiContent from "@/pages/strategicDashboard/CardMultiContent.vue";
 export default {
   name: "strategicDashboard",
-  components: {cardMultiContent, DatePickerMonth},
+  components: {CardMultiContent, DatePickerMonth},
   data(){
     return {
       options: {
@@ -17,7 +17,12 @@ export default {
       series: [{
         name: 'series-1',
         data: [30, 40, 45, 50, 49, 60, 70, 91]
-      }]
+      },
+      {
+        name: 'series-2',
+        data: [40, 45, 50, 49, 60, 70, 91, 100]
+      }],
+
     }
   }
 }
@@ -37,7 +42,7 @@ export default {
   <a-row :gutter="{ xs: 8, sm: 16, md: 24, lg: 32 }" class="v-spacer">
     <a-col class="gutter-row" :span="7">
       <div class="gutter-box flex">
-        <cardMultiContent
+        <CardMultiContent
             titre="Chiffre d'affaire"
             contenu1="200 000"
             contenu2="300 000"
@@ -48,7 +53,7 @@ export default {
     </a-col>
     <a-col class="gutter-row" :span="7">
       <div class="gutter-box flex">
-        <cardMultiContent
+        <CardMultiContent
             titre="Nombre de réservations"
             contenu1="200"
             contenu2="250"
@@ -59,7 +64,7 @@ export default {
     </a-col>
     <a-col class="gutter-row" :span="7">
       <div class="gutter-box flex">
-        <cardMultiContent
+        <CardMultiContent
             titre="Taux de remplissage moyen"
             contenu1="80%" contenu2="85%"
             head-style="background-color:var(--hotel-arth-blue); color: #ffffff; text-align: center;"
@@ -69,7 +74,7 @@ export default {
     </a-col>
   </a-row>
 
-  <h2>Evolution et comparaison</h2>
+  <h2>Evolution et comparaison du taux de remplissage</h2>
   <a-divider />
   <div class="v-spacer flex">
     <apexchart width="400" type="line" :options="options" :series="series"></apexchart>
@@ -80,7 +85,7 @@ export default {
   <a-row :gutter="{ xs: 8, sm: 16, md: 24, lg: 32 }" class="v-spacer">
     <a-col class="gutter-row" :span="8">
       <div class="gutter-box flex">
-        <cardMultiContent
+        <CardMultiContent
             titre="Temps moyen entre réservation et check-in"
             contenu1="12j 20h 13mn"
             contenu2="20j 12h 15mn"
@@ -91,7 +96,7 @@ export default {
     </a-col>
     <a-col class="gutter-row" :span="8">
       <div class="gutter-box flex">
-        <cardMultiContent
+        <CardMultiContent
             titre="Temps d'accueil moyen"
             contenu1="20mn" contenu2="15mn"
             head-style="background-color:var(--hotel-arth-blue); color: #ffffff; text-align: center;"
@@ -107,8 +112,8 @@ export default {
 <style scoped>
 .chip::before {
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   z-index: 10;
   border-radius: 50%;
