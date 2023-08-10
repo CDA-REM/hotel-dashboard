@@ -1,6 +1,6 @@
 import {useUserStore} from "../stores/user.js"
 import { useDataStore } from "../stores/data.js"
-import {useFilterStore} from "../stores/filter";
+import {useDashboardTacticStore } from "../stores/dashboardTactic";
 
 export default {
     install(app, options) {
@@ -9,6 +9,6 @@ export default {
         // Be able to use the store in all components via `this.$dataStore`
         app.config.globalProperties.$dataStore = useDataStore()
 
-        app.config.globalProperties.$filterStore = useFilterStore()
+        app.config.globalProperties.$dashboardTacticStore = useDashboardTacticStore()
     }
 }

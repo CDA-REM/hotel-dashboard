@@ -124,10 +124,10 @@ export const useDataStore = defineStore('data', {
                 {"id":5,"option_name":"All-inclusive pressing service \u20ac30 \/person\/day","option_price":30},
                 {"id":6,"option_name":"Unlimited access to the Canal+ channel \u20ac10 \/week","option_price":10},
                 {"id":7,"option_name":"Access to the swimming pool 25\u20ac per stay","option_price":25}
-            ]
+            ],
         }
     },
     actions: {
-
+        //
     }
 })
