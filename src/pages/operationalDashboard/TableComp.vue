@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="$dataStore.reservations">
+  <a-table :columns="columns" :data-source="$dashboardOperational.reservations">
 
     <template #headerCell="{ column }">
       <template v-if="column.key === 'tags'">
@@ -74,6 +74,7 @@ export default {
         title: 'Chambre',
         dataIndex: 'chambre',
         key: 'chambre',
+        sorter: (a, b) => a.chambre - b.chambre
       }, {
         title: 'Nom',
         dataIndex: 'nom',
@@ -94,24 +95,6 @@ export default {
         title: 'Nombre de clés',
         dataIndex: 'nombreCle',
         key: 'nombreCle',
-      }],
-      data : [{
-        tags: 'disponible',
-        chambre: 32,
-      }, {
-        tags: 'occupée',
-        chambre: 42,
-        nom: 'Gean-Jacques Goldman',
-        arrivee: '08/09/2023',
-        depart: '11/09/2023',
-        nombreCle: 2
-      }, {
-        tags: 'occupée',
-        chambre: 32,
-        nom: 'Jean-Jacques Goldman',
-        arrivee: '08/09/2023',
-        depart: '10/09/2023',
-        nombreCle: 2
       }]
       }
     },

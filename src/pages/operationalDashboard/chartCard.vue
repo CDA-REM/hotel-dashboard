@@ -1,26 +1,23 @@
 <template>
     <div>
         <a-card :title=titre :bordered="false" style="width:300px">
-            <apexchart type="donut" :options="chartOptions" :series="series"></apexchart>
+            <apexchart type="donut" :options="chartOptions" :series="occupationRate"></apexchart>
         </a-card>
     </div>
 </template>
 
 <script>
-import chartComp from './chartComp.vue';
 
 export default {
     name : 'chartCard',
-    components: { chartComp },
     props: {
-        titre: String
+        titre: String,
+        occupationRate: Array
     },
     data() {
 
         return {
-          
-          series: [ 11, 22 ],
-
+          series: [12, 22],
           chartOptions: {
             labels: ["Occupées", "Disponibles"],
             chart: {

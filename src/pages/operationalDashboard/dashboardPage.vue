@@ -1,13 +1,18 @@
 <template>
     <div class="daily-dashboard">
         <h1>Informations du jour</h1>
+
         <h2>Statistiques</h2>
         <a-divider />
-        <customCardGrid :people="$dashboardOperational.numberOfPeople"/>
+        <customCardGrid :people="$dashboardOperational.numberOfPeople"
+            :numberOfKeys="$dashboardOperational.numberOfKeys"
+            :menus="$dashboardOperational.menus"
+            :freeRooms="$dashboardOperational.freeRooms"
+            :occupationRate="$dashboardOperational.occupationRate"/>
+
         <h2>Occupation des chambres</h2>
         <a-divider />
         <tableComp :tableData="$dataStore.reservations"/>
-        <p>{{ tableData }}</p>
     </div>
 </template>
 
@@ -20,6 +25,15 @@ export default {
     components: { customCardGrid, TableComp },
     async mounted() {
         await this.$dashboardOperational.loadDailyData();
+
+        if (this.$dashboardOperational.reservations) {
+            this.$dashboardOperational.countNumberOfKeys();
+            console.log(this.$dashboardOperational.numberOfKeys)
+            this.$dashboardOperational.countFreeRooms();
+            this.$dashboardOperational.calculateOccupationRate();
+            console.log(this.$dashboardOperational.occupationRate)
+        }
+
     }
 }
 </script>
