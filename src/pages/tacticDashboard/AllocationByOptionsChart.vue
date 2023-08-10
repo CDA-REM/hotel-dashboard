@@ -1,5 +1,6 @@
 <script>
 import {defineComponent} from 'vue';
+
 import cardComp from "@/components/CardComp.vue";
 import { ApexCharts } from "apexcharts";
 
