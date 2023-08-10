@@ -50,7 +50,8 @@
 
 <script>
 import ReloadBtn from "@/components/ReloadBtn.vue";
-import CardComp from "@/components/cardComp.vue";
+import CardComp from "@/components/CardComp.vue";
+
 import AllocationByRoomTypeChart from "@/pages/tacticDashboard/AllocationByRoomTypeChart.vue";
 import AllocationByOptionsChart from "./AllocationByOptionsChart.vue";
 import OccupancyData from "./OccupancyData.vue";
