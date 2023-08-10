@@ -4,10 +4,10 @@
             <a-row :gutter="16" style="margin-bottom: 3%;">
                 <a-space size="middle">
                     <a-col :span="8">
-                        <cardComp titre="Chambres disponibles" contenu="12" />
+                        <cardComp titre="Chambres disponibles" :contenu=freeRooms />
                     </a-col>
                     <a-col :span="8">
-                        <cardComp titre="Clés en cours d'utilisation" contenu="24" />
+                        <cardComp titre="Clés en cours d'utilisation" :contenu=numberOfKeys />
                     </a-col>
                     <a-col :span="8">
                         <cardComp titre="Nombre de clients" :contenu=people />
@@ -17,7 +17,7 @@
             </a-row>
             <a-row>
                 <a-col :span="8">
-                    <chartCard titre="Taux d'occupation" />
+                    <chartCard titre="Taux d'occupation" :occupationRate="occupationRate"/>
                 </a-col>
                 <a-col :span="8">
                     <antCardGrid :menus=menus />
@@ -35,17 +35,19 @@
 
 <script>
 import cardComp from '../../components/CardComp.vue';
-import chartComp from './chartComp.vue';
 import ChartCard from './chartCard.vue';
 import antCardGrid from './antCardGrid.vue';
 import BarChart from './BarChart.vue';
 
 export default {
     name: "customCardGrid",
-    components: { cardComp, ChartCard, chartComp, antCardGrid, BarChart },
+    components: { cardComp, ChartCard, antCardGrid, BarChart },
     props: {
         people: Number,
-        menus: Array
+        menus: Array,
+        numberOfKeys: Number,
+        freeRooms: Number,
+        occupationRate: Array
     }
 }
 </script>
