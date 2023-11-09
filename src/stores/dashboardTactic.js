@@ -15,7 +15,9 @@ export const useDashboardTacticStore = defineStore('dashboardTactic', {
             occupancyRateByOptionsTactic: {},
             averageTimeBetweenBookingAndCheckinTactic: {},
             receptionPerformanceTactic: {},
-            defaultTacticContent : 'Pas de données à afficher. \n Veuillez choisir une autre date'
+            formattedData: {},
+            defaultTacticContent : 'Pas de données à afficher. \n Veuillez choisir une autre date',
+            isLoading: false,
         }
     },
     actions: {
@@ -60,7 +62,7 @@ export const useDashboardTacticStore = defineStore('dashboardTactic', {
             try {
                 const startDate = this.dateFilter[0]; // Première date du filtre
                 const endDate = this.dateFilter[1]; // Deuxième date du filtre
-                const response = await axios.get(`/api/dashboard/tactical/averageCartValue`, {
+                const response = await axios.get(`/api/dashboard/tactical/averageCart`, {
                     params: {
                         start_date: startDate,
                         end_date: endDate,
@@ -86,6 +88,7 @@ export const useDashboardTacticStore = defineStore('dashboardTactic', {
                     },
                 });
                 this.averageCartEvolutionTactic = response.data;
+
                 console.log(this.averageCartEvolutionTactic);
 
             } catch (error) {
@@ -186,12 +189,31 @@ export const useDashboardTacticStore = defineStore('dashboardTactic', {
                 console.error("Une erreur s'est produite lors de la récupération des données : ", error);
             }
         },
+        async fetchAverageDurationOfAStay() {
+            try {
+                const startDate = this.dateFilter[0]; // Première date du filtre
+                const endDate = this.dateFilter[1]; // Deuxième date du filtre
+
+                const response = await axios.get(`/api/dashboard/tactical/averageDurationOfAStay`, {
+                    params: {
+                        start_date: startDate,
+                        end_date: endDate,
+                    }
+                });
+                this.averageDurationOfAStay = response.data;
+
+                console.log(this.averageDurationOfAStay);
+            } catch (error) {
+                console.error("Une erreur s'est produite lors de la récupération des données : ", error);
+            }
+        },
+
         async fetchReceptionPerformance() {
             try {
                 const startDate = this.dateFilter[0]; // Première date du filtre
                 const endDate = this.dateFilter[1]; // Deuxième date du filtre
 
-                const response = await axios.get(`/api/dashboard/tactical/receptionPerformance`, {
+                const response = await axios.get(`/api/dashboard/tactical/averageDurationOfACheckin`, {
                     params: {
                         start_date: startDate,
                         end_date: endDate,
