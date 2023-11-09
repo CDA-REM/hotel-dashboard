@@ -15,7 +15,8 @@ export default {
       required: true,
       default: 'Titre de la carte'},
     contenu: {
-      type: String
+      type: String,
+      default: 'Pas de données à afficher.'
     },
     class: {
       type: String

@@ -9,7 +9,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <a-button type="primary">
+  <a-button type="primary" title="Générer un pdf">
     <file-pdf-outlined />Générer un pdf
   </a-button>
 </template>

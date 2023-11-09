@@ -9,7 +9,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <a-button type="primary"><reload-outlined />Mettre à jour les données</a-button>
+  <a-button type="primary" title="Mettre à jour les données"><reload-outlined />Mettre à jour les données</a-button>
 </template>
 
 <style scoped>
