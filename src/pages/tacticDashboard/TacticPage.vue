@@ -76,12 +76,6 @@ export default {
     CardComp,
     ReloadBtn,
     OccupancyData,
-
-  },
-  data() {
-    return {
-      //
-    };
   },
   methods: {
     generatePDF() {
@@ -95,20 +89,12 @@ export default {
         html2canvas: { scale: 1 },
         jsPDF: { unit: 'cm', format: 'a4', orientation: 'landscape' }
       };
-
-      // Utiliser les options lors de la génération du PDF
       html2pdf().set(options).from(element).save().then(() => {
-        // Cette callback est appelée une fois le PDF généré et téléchargé
         console.log('PDF generated and downloaded');
       });
     }
-
-  },
-  computed: {
-    //
-  },
-
-}
+},
+};
 </script>
 
 <style scoped>
@@ -126,5 +112,4 @@ export default {
   border-block-start: 1px solid grey;
   border-block-start-color: grey;
 }
-
 </style>

@@ -18,7 +18,7 @@ export default defineComponent({
         averageHotelOccupancyRate : {
           id: 1,
               title: 'Taux de remplissage moyen',
-              stat: `${this.$dashboardTacticStore.occupancyRateTactic.occupancy_rate}` || '100 %' || null
+              stat: `${this.$dashboardTacticStore.occupancyRateTactic.occupancy_rate} %` || '100 %' || null
         },
         TotalOfReservation : {
           id: 2,

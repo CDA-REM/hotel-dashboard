@@ -9,9 +9,9 @@
           :locale="locale"
       />
     </a-space>
-    <div v-if="pickerValue">
-      <p style="margin-top: 1rem;">Dates sélectionnées : {{ formatDate(pickerValue) }}</p>
-    </div>
+<!--    <div v-if="pickerValue">-->
+<!--      <p style="margin-top: 1rem;">Dates sélectionnées : {{ formatDate(pickerValue) }}</p>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default defineComponent({
   data() {
     return {
       rangeValue: [Dayjs, Dayjs],
-      pickerValue: this.rangeValue,
+      pickerValue: [dayjs(), dayjs()] as RangeValue,
       dateFormatList: ['DD/MM/YYYY', 'DD/MM/YY'],
       locale
     };
@@ -45,8 +45,9 @@ export default defineComponent({
       this.$dashboardTacticStore.fetchNumberOfReservations();
       this.$dashboardTacticStore.fetchOccupancyRate();
       this.$dashboardTacticStore.fetchOccupancyRateByRoomType();
-      // this.$dashboardTacticStore.fetchOccupancyRateByOptions();
-      // this.$dashboardTacticStore.fetchAverageTimeBetweenBookingAndCheckin();
+      this.$dashboardTacticStore.fetchOccupancyRateByOptions();
+      this.$dashboardTacticStore.fetchAverageTimeBetweenBookingAndCheckin();
+      this.$dashboardTacticStore.fetchAverageDurationOfAStay();
       // this.$dashboardTacticStore.fetchReceptionPerformance();
 
     },
@@ -62,16 +63,28 @@ export default defineComponent({
         return formattedDates;
       }
     },
-    // function qui prend en entrée le tableau de date et qui retourne un tableau de dates formatées
+
+    /**
+     * Fonction qui prend en entrée le tableau de date et qui retourne un tableau de dates formatées.
+     *
+     * @param dates
+     * @returns {String} un message contenant les dates
+     */
     formatDate(dates :RangeValue) {
       if (dates) {
         return `du ${dayjs(dates[0]).format('DD/MM/YYYY')} au ${dayjs(dates[1]).format('DD/MM/YYYY')}`;
       }
     },
   },
+  async mounted() {
+    const startOfMonth = dayjs().startOf('month');
+    const endOfMonth = dayjs().endOf('month');
+    this.pickerValue = [startOfMonth, endOfMonth] as RangeValue;
+    this.$dashboardTacticStore.dateFilter = this.formatDatesToYYYYMMDD(this.pickerValue);
+    await this.fetchReservations();
+  },
 });
 </script>
-
 
 <style scoped>
 
