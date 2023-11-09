@@ -12,6 +12,11 @@ import {router} from './router'
 import appPlugin from "./plugins/appPlugin.js"
 import antDesignPlugin from "@/plugins/antDesignPlugin.js"
 
+// Import html2pdf
+import html2pdf from 'html2pdf.js';
+
+
+
 const app = createApp(App)
 
 app.use(createPinia())
@@ -21,3 +26,5 @@ app.use(createPinia())
     .use(VueApexCharts)
     .mount('#app')
 
+// Make html2pdf globally available
+app.config.globalProperties.$html2pdf = html2pdf;
