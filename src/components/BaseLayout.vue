@@ -8,7 +8,10 @@
         <a-menu-item :key="menuKeyToRouteName['1']" title="Mon compte" >
           <RouterLink :to="{name: 'userAccount'}" />
           <user-outlined  v-if="this.$userStore"/>
-          <span>{{ this.$userStore.user.firstname || "Mon compte"}}</span>
+          <span>
+            {{ this.$userStore.user && this.$userStore.user.firstname ? `${this.$userStore.user.firstname} ${this.$userStore.user.name}`
+            : "Mon compte" }}
+          </span>
         </a-menu-item>
 
         <a-menu-item :key="menuKeyToRouteName['2']" title="Tableau de bord journalier">
@@ -43,7 +46,7 @@
         </div>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
-        Hôtel Arth Dashboard - Created by REM Corporation
+        Hôtel Arth Dashboard - 2023 - Created by REM Corporation
       </a-layout-footer>
     </a-layout>
   </a-layout>

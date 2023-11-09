@@ -36,9 +36,6 @@
 </template>
 
 <script>
-
-import {router} from "@/router";
-
 export default {
   name: "LoginForm",
   data() {
@@ -56,7 +53,6 @@ export default {
 
       try {
         await this.$userStore.login(this.credentials)
-        await router.push({name: 'operationalDashboard'})
         console.log("store", this.$userStore)
       }catch (errors) {
         this.errors = errors.response.data.errors.error
