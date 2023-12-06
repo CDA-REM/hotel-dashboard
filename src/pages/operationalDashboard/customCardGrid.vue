@@ -4,13 +4,13 @@
             <a-row :gutter="16" style="margin-bottom: 3%;">
                 <a-space size="middle">
                     <a-col :span="8">
-                        <cardComp titre="Chambres disponibles" :contenu=freeRooms />
+                        <cardComp titre="Chambres disponibles" :contenu=String(freeRooms) />
                     </a-col>
                     <a-col :span="8">
-                        <cardComp titre="Clés en cours d'utilisation" :contenu=numberOfKeys />
+                        <cardComp titre="Clés en cours d'utilisation" :contenu=String(numberOfKeys) />
                     </a-col>
                     <a-col :span="8">
-                        <cardComp titre="Nombre de clients" :contenu=people />
+                        <cardComp titre="Nombre de clients" :contenu=String(people) />
                     </a-col>
                     
                 </a-space>
