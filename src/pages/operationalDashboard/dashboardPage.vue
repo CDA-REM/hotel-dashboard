@@ -28,10 +28,8 @@ export default {
 
         if (this.$dashboardOperational.reservations) {
             this.$dashboardOperational.countNumberOfKeys();
-            console.log(this.$dashboardOperational.numberOfKeys)
             this.$dashboardOperational.countFreeRooms();
             this.$dashboardOperational.calculateOccupationRate();
-            console.log(this.$dashboardOperational.occupationRate)
         }
 
     }
